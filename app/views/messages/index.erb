@@ -4,7 +4,10 @@
   <div class="message">
     <h3><a href="/messages/<%= message.id %>"><%= message.title %></a> <small>(by: <%= message.author %>)</small></h3>
     <p>
-      <%= message.url %>
+      <a href="<%= message.url %>"><%= message.url %></a>
+    </p>
+    <p>
+      <small><i> Posted at: <%= message.created_at %> </i></small>
     </p>
     <br>
 <% end %>
