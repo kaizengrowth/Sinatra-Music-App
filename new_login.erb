@@ -1,0 +1,27 @@
+<h1> Create a new login </h1>
+<!-- <hr/> -->
+<!--
+<% if @user &&  @user.errors.any? %>
+  <div>
+     <strong>Some issues with your new account, please fix them:</strong>
+     <ul>
+     <% @user.errors.full_messages.each do |user| %>
+       <li><%= user %></li>
+     <% end %>
+     </ul>
+  </div>
+<% end %> -->
+
+<form method="post" action="/users">
+  <div>
+    <label>Email:</label>
+    <input type="text" name="email" value="<%= @user && @user.email %>">
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password_digest" name="password" value="<% @user && @message.password %>">
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
