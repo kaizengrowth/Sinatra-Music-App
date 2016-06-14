@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613164355) do
+ActiveRecord::Schema.define(version: 20160614212817) do
 
   create_table "messages", force: :cascade do |t|
     t.string "title"
@@ -20,5 +20,18 @@ ActiveRecord::Schema.define(version: 20160613164355) do
     t.date   "created_at"
     t.date   "updated_at"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.string   "login_token"
+    t.string   "remember_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["login_token"], name: "index_users_on_login_token"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

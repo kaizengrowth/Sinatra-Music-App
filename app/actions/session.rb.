@@ -1,0 +1,18 @@
+# get '/session' do
+#   erb :'session/new'
+# end
+#
+# post '/session' do
+#   if user = User.find_by(email: params[:email])
+#     session[:user_email] = user.email
+#     redirect '/'
+#   else
+#     @error = "Invalid email"
+#     erb :'session/new'
+#   end
+# end
+#
+# delete '/session' do
+#   session[:user_email] = nil
+#   redirect '/'
+# end
