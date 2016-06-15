@@ -123,3 +123,16 @@ put '/logout' do
 end
 
 ## END OF USER LOGIN / LOGOUT ##
+
+# Upvote #
+
+post '/upvote' do
+  Upvote.find_by(user_id: current_user.id, message_id: params[:message_id])
+    Upvote.create(
+      message_id: params[:message_id],
+      user_id: current_user.id
+    )
+    redirect '/messages'
+end
+
+## END OF UPVOTE ##

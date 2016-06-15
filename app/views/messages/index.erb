@@ -10,9 +10,18 @@
       <small><i> Posted on: <%= message.created_at %> by <%= message.user.email %> </i></small>
     </p>
     <br>
+
+    <form method="post" action="/upvote">
+      <input type="hidden" name="_method" value="put">
+      <input type="submit" name="message_id" value="<%= message.upvotes.count %> likes">
+    </form>
+  </div>
 <% end %>
 
-<a href="/messages/new">Post a song!</a>
+
+
+
+<a href="/messages/new">Post another song!</a>
 <br>
 
 <form method="post" action="/logout">
