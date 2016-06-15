@@ -3,6 +3,8 @@ get '/' do
   erb :index
 end
 
+## Secure Login ##
+
 get '/login' do
   erb :login
 end
@@ -58,6 +60,10 @@ post '/session' do
   end
 end
 
+## END OF SECURE LOGIN ##
+
+## Post song ##
+
 get '/messages' do
   if current_user
     @messages = Message.all
@@ -83,12 +89,17 @@ post '/messages' do
     author: params[:author],
     url: params[:url]
   )
+  @message.user_id = current_user.id
   if @message.save
     redirect '/messages'
   else
     erb :'messages/new'
   end
 end
+
+## END OF POST SONG ##
+
+## Create New User ##
 
 get '/new_login' do
     erb :'new_login'
@@ -105,3 +116,10 @@ post '/new_login' do
     erb :'/new_login'
   end
 end
+
+put '/logout' do
+  session[:user_session] = nil
+  redirect '/login'
+end
+
+## END OF USER LOGIN / LOGOUT ##

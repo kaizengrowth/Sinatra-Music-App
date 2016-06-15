@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :Songs
+  has_many :messages
 
   has_secure_password
 

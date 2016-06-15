@@ -7,9 +7,15 @@
       <a href="<%= message.url %>"><%= message.url %></a>
     </p>
     <p>
-      <small><i> Posted at: <%= message.created_at %> </i></small>
+      <small><i> Posted on: <%= message.created_at %> by <%= message.user.email %> </i></small>
     </p>
     <br>
 <% end %>
 
 <a href="/messages/new">Post a song!</a>
+<br>
+
+<form method="post" action="/logout">
+  <input type="hidden" name="_method" value="put">
+  <input type="submit" value="Log Out">
+</form>
